@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="Node-based scene editor for creating animated content and interactive compositions">
+  <meta name="theme-color" content="#5b5bd6">
+  <title>Scene Tree Node Editor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <aside class="sidebar" id="sidebar" aria-label="Node editor navigation">
+    <div class="brand"><span class="brand-mark">N</span><span id="brandName">NodeEdit</span></div>
+    <div class="toolbar">
+      <button class="new-btn" id="newNodeBtn">＋ New Node</button>
+      <button class="new-btn" id="newSceneBtn">＋ New Scene</button>
+    </div>
+    <label class="search-box" aria-label="Search nodes">
+      <span>🔍</span><input id="nodeSearch" placeholder="Search nodes…" autocomplete="off">
+      <kbd>⌘K</kbd>
+    </label>
+    <nav class="nav-list">
+      <button class="nav-item active" data-view="graph">Graph</button>
+      <button class="nav-item" data-view="scenes">Scenes</button>
+      <button class="nav-item" data-view="layers">Layers</button>
+      <button class="nav-item" data-view="properties">Properties</button>
+    </nav>
+    <div class="sidebar-projects">
+      <div class="section-label">Node Types <button id="nodePaletteBtn" aria-label="Toggle node palette">＞</button></div>
+      <div id="nodeNav"></div>
+    </div>
+    <div class="sidebar-footer"><span class="status-dot"></span><span>Local node graph</span></div>
+  </aside>
+
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <main class="main">
+    <header class="mobile-header">
+      <button class="icon-btn" id="menuBtn" aria-label="Open navigation">☰</button>
+      <strong id="mobileTitle">NodeEdit</strong>
+      <button class="icon-btn" id="mobileSearchBtn" aria-label="Search">🔍</button>
+    </header>
+    <div class="content" id="content"></div>
+  </main>
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop" hidden>
+  <section class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"></section>
+</div>
+<div class="toast-region" id="toastRegion" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
